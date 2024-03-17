@@ -230,7 +230,8 @@ class Assistant:
             token = body.get('response', '')
             tokens.append(token)
             # the response streams one token at a time, process only at end of sentences
-            if token == "." or token == ":" or token == "!" or token == "?":
+            if (token == "." or token == ":" or token == "!" or token == "?"
+                or token == "。" or token == "：" or token == "！" or token == "？"):
                 current_response = "".join(tokens)
                 #self.conversation_history.append(current_response)
                 responseCallback(current_response)
