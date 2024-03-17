@@ -47,7 +47,7 @@ class Assistant:
         pygame.display.set_caption("Assistant")
 
         self.windowSurface = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
-        self.font = pygame.font.SysFont(None, FONT_SIZE)
+        self.font = pygame.font.Font("font/LXGWWenKai-Regular.ttf", FONT_SIZE)
 
         self.audio = pyaudio.PyAudio()
         
