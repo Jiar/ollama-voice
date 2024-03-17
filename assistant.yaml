@@ -1,18 +1,18 @@
 messages:
-  pressSpace: "Pressez sur espace pour parler puis relachez."
-  loadingModel: "Chargement du modèle..."
-  noAudioInput: "Erreur: Pas d'entrée son"
+  pressSpace: "按空格键说话，然后松开。"
+  loadingModel: "加载模型中"
+  noAudioInput: "错误！无声音输入"
 
 whisperRecognition:
   modelPath: "whisper/large-v3.pt"
-  lang: "fr"
+  lang: "zh"
 
 ollama:
   url: "http://localhost:11434/api/generate"
-  model: "mistral"
+  model: "llama2-chinese:7b"
 
 conversation:
-  context: "Cette conversasion est intégralement en français."
-  greeting: "Je vous écoute."
-  recognitionWaitMsg: "Oui."
-  llmWaitMsg: "Laissez moi réfléchir."
+  context: "这是一场中文的沟通会 \n"
+  greeting: "你好"
+  recognitionWaitMsg: "语音识别中"
+  llmWaitMsg: "模型思考中"

@@ -2,7 +2,6 @@ import pyttsx3
 import numpy as np
 import whisper
 import pyaudio
-import sys
 import torch
 import requests
 import json
@@ -48,7 +47,7 @@ class Assistant:
         pygame.display.set_caption("Assistant")
 
         self.windowSurface = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
-        self.font = pygame.font.SysFont(None, FONT_SIZE)
+        self.font = pygame.font.Font("font/LXGWWenKai-Regular.ttf", FONT_SIZE)
 
         self.audio = pyaudio.PyAudio()
         
@@ -147,7 +146,7 @@ class Assistant:
             
             mid = int(np.ceil(count/2))
             for i in range(0, mid):
-                color = (RED_CENTER+(FACTOR*(i % mid)), 0, 0)
+                color = (min(RED_CENTER+(FACTOR*(i % mid)), 255), 0, 0)
                 offset = i*(KHEIGHT+vspace)
                 pygame.draw.rect(self.windowSurface, color, 
                                 rect_coords(x, y+offset))
@@ -231,7 +230,8 @@ class Assistant:
             token = body.get('response', '')
             tokens.append(token)
             # the response streams one token at a time, process only at end of sentences
-            if token == "." or token == ":" or token == "!" or token == "?":
+            if (token == "." or token == ":" or token == "!" or token == "?"
+                or token == "。" or token == "：" or token == "！" or token == "？"):
                 current_response = "".join(tokens)
                 #self.conversation_history.append(current_response)
                 responseCallback(current_response)
