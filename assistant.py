@@ -2,7 +2,6 @@ import pyttsx3
 import numpy as np
 import whisper
 import pyaudio
-import sys
 import torch
 import requests
 import json
@@ -147,7 +146,7 @@ class Assistant:
             
             mid = int(np.ceil(count/2))
             for i in range(0, mid):
-                color = (RED_CENTER+(FACTOR*(i % mid)), 0, 0)
+                color = (min(RED_CENTER+(FACTOR*(i % mid)), 255), 0, 0)
                 offset = i*(KHEIGHT+vspace)
                 pygame.draw.rect(self.windowSurface, color, 
                                 rect_coords(x, y+offset))
